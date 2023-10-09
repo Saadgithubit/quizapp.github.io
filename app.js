@@ -23,25 +23,59 @@ var questions = [
     }
 ]
 
-function start(e){
+function start(e) {
 
     var btn = e.target
     var container = document.getElementById('container')
     container.className = ""
     btn.className = "hide"
-    var title = document.getElementById('title')
+   
+   renderQ()
+}
 
-    title.innerHTML = questions[currentQuestions].title 
-
-    }
-
-function next(){
+function next() {
     currentQuestions++
     var container = document.getElementById('container')
     container.className = ""
     var title = document.getElementById('title')
+    var optionsElement = document.getElementById('options')
+    optionsElement.innerHTML = ''
 
-    title.innerHTML = questions[currentQuestions].title 
+    if (currentQuestions < questions.length) {
+    renderQ()
+    }
+    else {
+        container.className = 'hide'
+    }
+}
+
+function restart() {
+    currentQuestions = 0
+    var container = document.getElementById('container')
+    container.className = ""
+    var title = document.getElementById('title')
+    var btn = document.getElementById('start')
+    btn.className = 'hide'
+
+    title.innerHTML = questions[currentQuestions].title
+}
+
+function renderQ(){
+
+    var title = document.getElementById('title')
+    var optionsElement = document.getElementById('options')
+    
+    var options = questions[currentQuestions].options
+
+    title.innerHTML = questions[currentQuestions].title
+    for(var i = 0; i < options.length; i++){
+        var inputElement = document.createElement('input')
+        inputElement.type = 'radio'
+        inputElement.name = 'radio'
+        inputElement.value = options[i]
+        optionsElement.append(inputElement)
+        optionsElement.append(options[i])
+    }
 }
 
 
