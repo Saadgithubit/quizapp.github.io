@@ -64,7 +64,7 @@ function next() {
         container.className = 'hide'
         percentage = score * 100 / 80 
         var result = document.getElementById('result')
-        result.innerHTML = 'Your Score = ' + percentage + '%'
+        result.innerHTML = 'Your Score is ' + percentage + '%'
     }
 }
 
@@ -83,9 +83,8 @@ function renderQ(){
 
     var title = document.getElementById('title')
     var optionsElement = document.getElementById('options')
-    
     var options = questions[currentQuestions].options
-
+    
     title.innerHTML = questions[currentQuestions].title
     for(var i = 0; i < options.length; i++){
         var inputElement = document.createElement('input')
@@ -94,6 +93,7 @@ function renderQ(){
         inputElement.value = options[i]
         optionsElement.append(inputElement)
         optionsElement.append(options[i])
+
     }
 }
 
