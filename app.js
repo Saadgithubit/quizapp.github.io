@@ -22,6 +22,9 @@ var questions = [
         correctAnswer: 'Programming Language'
     }
 ]
+var selectedoption ;
+var score = 0
+var percentage ;
 
 function start(e) {
 
@@ -31,9 +34,22 @@ function start(e) {
     btn.className = "hide"
    
    renderQ()
+
 }
 
+
 function next() {
+
+    var nameElements = document.getElementsByName('radio')
+    for(var i = 0; i < nameElements.length; i++){
+     if (nameElements[i].checked){
+         selectedoption = nameElements[i].value
+        
+     }
+ }
+ if(selectedoption == questions[currentQuestions].correctAnswer){
+    score +=20
+ }
     currentQuestions++
     var container = document.getElementById('container')
     container.className = ""
@@ -46,6 +62,9 @@ function next() {
     }
     else {
         container.className = 'hide'
+        percentage = score * 100 / 80 
+        var result = document.getElementById('result')
+        result.innerHTML = 'Your Score = ' + percentage + '%'
     }
 }
 
@@ -77,6 +96,8 @@ function renderQ(){
         optionsElement.append(options[i])
     }
 }
+
+
 
 
 
