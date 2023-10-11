@@ -22,7 +22,7 @@ var questions = [
         correctAnswer: 'Programming Language'
     }
 ]
-var selectedoption ;
+
 var score = 0
 var percentage ;
 
@@ -40,16 +40,17 @@ function start() {
 
 function next() {
 
-    var nameElements = document.getElementsByName('radio')
-    for(var i = 0; i < nameElements.length; i++){
-     if (nameElements[i].checked){
-         selectedoption = nameElements[i].value
+//     var nameElements = document.getElementsByName('radio')
+//     for(var i = 0; i < nameElements.length; i++){
+//      if (nameElements[i].checked){
+//        var selectedoption = nameElements[i].value
+//     if(selectedoption == questions[currentQuestions].correctAnswer){
+//         score +=20
         
-     }
- }
- if(selectedoption == questions[currentQuestions].correctAnswer){
-    score +=20
- }
+//      }
+//  }
+//  }
+checkedScore()
     currentQuestions++
     var container = document.getElementById('container')
     container.className = ""
@@ -62,10 +63,24 @@ function next() {
     }
     else {
         container.className = 'hide'
-        percentage = score * 100 / 80 
+        percentage = score / questions.length * 100 
         var result = document.getElementById('result')
         result.innerHTML = 'Your Score is ' + percentage + '%'
     }
+}
+
+function checkedScore(){
+     var inputElements = document.getElementsByTagName('input')
+
+     for(var i = 0; i < inputElements.length; i++){
+        var selectedoption;
+        if(inputElements[i].checked){
+            selectedoption = inputElements[i].value
+            if(selectedoption == questions[currentQuestions].correctAnswer){
+                score ++
+            }
+        }
+     }
 }
 
 function restart() {
