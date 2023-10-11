@@ -26,9 +26,9 @@ var selectedoption ;
 var score = 0
 var percentage ;
 
-function start(e) {
+function start() {
 
-    var btn = e.target
+    var btn = document.getElementById('start')
     var container = document.getElementById('container')
     container.className = ""
     btn.className = "hide"
@@ -70,13 +70,10 @@ function next() {
 
 function restart() {
     currentQuestions = 0
-    var container = document.getElementById('container')
-    container.className = ""
-    var title = document.getElementById('title')
-    var btn = document.getElementById('start')
-    btn.className = 'hide'
-
-    title.innerHTML = questions[currentQuestions].title
+    score = 0
+    var optionsElement = document.getElementById('options')
+    optionsElement.innerHTML = ''
+    start()
 }
 
 function renderQ(){
