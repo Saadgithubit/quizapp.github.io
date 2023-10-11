@@ -87,12 +87,14 @@ function renderQ(){
     
     title.innerHTML = questions[currentQuestions].title
     for(var i = 0; i < options.length; i++){
+        var lineBreak = document.createElement('br')
         var inputElement = document.createElement('input')
         inputElement.type = 'radio'
         inputElement.name = 'radio'
         inputElement.value = options[i]
         optionsElement.append(inputElement)
         optionsElement.append(options[i])
+        optionsElement.append(lineBreak)
 
     }
 }
