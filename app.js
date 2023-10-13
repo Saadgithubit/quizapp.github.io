@@ -69,6 +69,9 @@ checkedScore()
         var result = document.getElementById('result')
         var restartBtn = document.getElementById('restart')
         restartBtn.className = ''
+        var timer = document.getElementById('timer')
+        timer.className = ''
+        clearInterval(interval)
         if(percentage > 70){
             result.innerHTML = 'Congratulations Your Are Passed ' + percentage + '%'
            
