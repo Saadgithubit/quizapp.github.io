@@ -34,6 +34,7 @@ function start() {
     btn.className = "hide"
    
    renderQ()
+   timer()
 
 }
 
@@ -50,6 +51,7 @@ function next() {
 //      }
 //  }
 //  }
+sec = 30
 checkedScore()
     currentQuestions++
     var container = document.getElementById('container')
@@ -65,7 +67,16 @@ checkedScore()
         container.className = 'hide'
         percentage = score / questions.length * 100 
         var result = document.getElementById('result')
-        result.innerHTML = 'Your Score is ' + percentage + '%'
+        var restartBtn = document.getElementById('restart')
+        restartBtn.className = ''
+        if(percentage > 70){
+            result.innerHTML = 'Congratulations Your Are Passed ' + percentage + '%'
+           
+        }
+        else{
+            result.innerHTML = 'Sorry You Are Fail ' + percentage + '%'
+            
+        }
     }
 }
 
@@ -88,6 +99,11 @@ function restart() {
     score = 0
     var optionsElement = document.getElementById('options')
     optionsElement.innerHTML = ''
+    var result = document.getElementById('result')
+    result.innerHTML = ''
+    var restartBtn = document.getElementById('restart')
+    restartBtn.className = 'hide'
+    sec = 30
     start()
 }
 
@@ -110,6 +126,20 @@ function renderQ(){
 
     }
 }
+var min = 0
+var sec = 30
+function timer(){
+   
+      var timer = document.getElementById('timer')
+      var interval = setInterval(function(){
+        timer.innerHTML = min + ' : ' + sec
+        sec--
+        if(sec < 0){
+            next()            
+            sec = 30
+        }
+      } , 1000)
+    }
 
 
 

@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz Application</title>
     <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
+   <div class="start-btn">
+    <h1>The Quiz Application</h1>
     <button id="start" onclick="start()">Start Quiz</button>
+</div>
+<div id="timer"></div>
+<div id="container" class="hide">
     
-    <div id="container" class="hide">
-    
-    <h3 id="title"></h3>
+    <h4 id="title"></h4>
 
 <div id="options"></div>
 <br>
-<button onclick="next()">Next</button>
-<button onclick="restart()">Restart</button>
+<br>
+<button class="next-btn" onclick="next()">Next</button>
 
 </div>
 
-<div>
-    <h1 id="result"></h1>
+<div class="result">
+    <h1 id="result"></h1><br>
+    <button class="hide" id="restart" onclick="restart()">Restart</button>
 </div>
 
     <script src="app.js"></script>
