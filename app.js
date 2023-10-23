@@ -24,6 +24,7 @@ var questions;
 // ]
 var parent = document.getElementById('parent-div')
 parent.className = 'hide'
+
 getApi()
 
 function getApi(){
@@ -48,7 +49,6 @@ function start() {
     var container = document.getElementById('container')
     container.className = ""
     btn.className = "hide"
-   
    
    renderQ()
    timer()

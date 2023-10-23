@@ -42,7 +42,7 @@ body , html{
 }
 
 #container{
-    width: 40%;
+    width: 100%;
     height: 100%;
     border: 1px solid gray;
     margin: auto;
@@ -51,7 +51,7 @@ body , html{
 
 }
 #container h4{
-    font-size: 25px;
+    font-size: 23px;
     text-align: center;
     border-bottom: 1px solid gray;
     width: 100%;
@@ -97,4 +97,46 @@ input{
     height: 50px;
     font-size: 17px;
     color: #007BFF;
+}
+
+@media screen and (max-width: 425px) {
+    
+    #loader img{
+      text-align: center;
+      position: absolute;
+      top: 30%;
+      right: 50%;
+      left: 20%;
+    }
+    
+    .start-btn{
+        font-size: 20px;
+    }
+    #start{
+        position: absolute;
+        top: 30%;
+        left: 25%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 375px) and (min-width: 320px) {
+    
+    #loader img{
+      text-align: center;
+      position: absolute;
+      top: 30%;
+      right: 50%;
+      left: 15%;
+    }
+    
+    .start-btn{
+        font-size: 20px;
+    }
+    #start{
+        position: absolute;
+        top: 35%;
+        left: 20%;
+        text-align: center;
+    }
 }
