@@ -119,6 +119,8 @@ function restart() {
     currentQuestions = 0
     score = 0
     sec = 30
+    var timer = document.getElementById('timer')
+      timer.className = 'timer'
     var optionsElement = document.getElementById('options')
     optionsElement.innerHTML = ''
     var result = document.getElementById('result')
